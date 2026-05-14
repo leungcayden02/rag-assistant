@@ -18,8 +18,10 @@ deepseek_client = OpenAI(
 
 # 初始化 Chroma（使用本地 embedding）
 @st.cache_resource
+@st.cache_resource
 def init_chroma():
-    chroma_client = chromadb.PersistentClient(path="./chroma_db_app")
+    # 改用内存模式（临时存储）
+    chroma_client = chromadb.EphemeralClient()
     embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
         model_name="BAAI/bge-small-zh-v1.5"
     )
