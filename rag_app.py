@@ -1,4 +1,6 @@
 import os
+os.environ["CHROMA_TELEMETRY_IMPL"] = "none"
+
 import tempfile
 from dotenv import load_dotenv
 import streamlit as st
